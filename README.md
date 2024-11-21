@@ -22,8 +22,9 @@ const traceid = Traceid();
 import Traceid from 'node-traceid';
 import store from 'node-traceid/dist/store';
 
-store.init(() => {
-    const traceid = store.get();
-    // 当前调用栈的traceid
+store.init({ test: true }, () => {
+    const traceid = store.get('traceid');
+    // 当前调用栈的其它属性
+    const test = store.get('test');
 });
 ```
