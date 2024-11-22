@@ -9,7 +9,7 @@ export function init(data: Record<string, any> = {}, callback: () => any, start 
 }
 
 export function get(key?: string): any {
-    const data = storage.getStore();
+    const data = storage.getStore() || {};
     return key? data[key] : data;
 }
 
