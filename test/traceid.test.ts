@@ -9,7 +9,7 @@ describe('traceid', function () {
     });
 
     it('异步本地存储', function (done) {
-       store.init({ test: true }, () => {
+        store.init({ test: true }, () => {
             const traceid = store.get('traceid');
             expect(traceid).to.be.an('string');
             const test = store.get('test');
@@ -17,6 +17,14 @@ describe('traceid', function () {
             const data = store.get();
             expect(data.traceid).to.be.an('string');
             expect(data.test).to.equal(true);
+            done();
+        });
+    });
+
+    it('自定义traceid', function (done) {
+        store.init({ traceid: '123' }, () => {
+            const traceid = store.get('traceid');
+            expect(traceid).to.equal('123');
             done();
         });
     });

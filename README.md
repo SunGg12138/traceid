@@ -28,3 +28,14 @@ store.init({ test: true }, () => {
     const test = store.get('test');
 });
 ```
+### 支持自定义traceid
+
+```typescript
+import Traceid from 'node-traceid';
+import store from 'node-traceid/dist/store';
+
+store.init({ traceid: '123' }, () => {
+    const traceid = store.get('traceid');
+    // traceid === '123'
+});
+```
